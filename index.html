@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ප්‍රශ්න පත්‍රය</title>
+    <style>
+        body {
+            font-family: 'Iskoola Pota', Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .timer-box {
+            background: #fffae6;
+            border: 2px solid #ffcc00;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            color: #d9534f;
+        }
+        .student-info {
+            margin-bottom: 20px;
+        }
+        .student-info input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .question-card {
+            background: #fafbfc;
+            border: 1px solid #e1e4e8;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .question-title {
+            font-weight: bold;
+            font-size: 17px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .options label {
+            display: block;
+            margin: 8px 0;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+        .submit-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .btn-submit {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #218838;
+        }
+        #result-section {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #e2f0d9;
+            border: 1px solid #c3e6cb;
+            font-size: 18px;
+            text-align: center;
+            font-weight: bold;
+            color: #155724;
+        }
+        .feedback {
+            font-size: 14px;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="timer-box" id="timer">ඉතිරි කාලය: විනාඩි 30 : තත්පර 00</div>
+
+    <div class="student-info">
+        <input type="text" id="studentName" placeholder="නම සහ විභාග අංකය ඇතුළත් කරන්න">
+    </div>
+
+    <form id="quizForm">
+
+        <!-- Q01 -->
+        <div class="question-card" data-q="1" data-ans="ආර්ථික, සමාජීය හා සංස්කෘතික දියුණුව">
+            <div class="question-title">01. සංවර්ධනය යනුවෙන් පොදුවේ අදහස් කරන්නේ මිනිසුන්ගේ ජීවිතවල සිදු වන කුමන දියුණුව ද?</div>
+            <div class="options">
+                <label><input type="radio" name="q1" value="ආර්ථික, සමාජීය හා සංස්කෘතික දියුණුව"> (අ) ආර්ථික, සමාජීය හා සංස්කෘතික දියුණුව</label>
+                <label><input type="radio" name="q1" value="කාර්මික හා දේශපාලන දියුණුව පමණි"> (ආ) කාර්මික හා දේශපාලන දියුණුව පමණි</label>
+                <label><input type="radio" name="q1" value="විදේශ වෙළඳපොළේ දියුණුව පමණි"> (ඇ) විදේශ වෙළඳපොළේ දියුණුව පමණි</label>
+            </div>
+            <div class="feedback" id="fb1"></div>
+        </div>
+
+        <!-- Q02 -->
+        <div class="question-card" data-q="2" data-ans="ඒක ශීර්ෂ ආදායම, ළදරු මරණ අනුපාතය, උපතේ දී ආයු අපේක්ෂාව හා සාක්ෂරතාව">
+            <div class="question-title">02. සංවර්ධන මට්ටම දැක්වීම සඳහා ලෝකයේ රටවල් භාවිත කරන ප්‍රධාන දර්ශක හතරක් වන්නේ:</div>
+            <div class="options">
+                <label><input type="radio" name="q2" value="ඒක ශීර්ෂ ආදායම, ළදරු මරණ අනුපාතය, උපතේ දී ආයු අපේක්ෂාව හා සාක්ෂරතාව"> (අ) ඒක ශීර්ෂ ආදායම, ළදරු මරණ අනුපාතය, උපතේ දී ආයු අපේක්ෂාව හා සාක්ෂරතාව</label>
+                <label><input type="radio" name="q2" value="ජනගහන වර්ධනය, භූමි ප්‍රමාණය, උෂ්ණත්වය හා වර්ෂාපතනය"> (ආ) ජනගහන වර්ධනය, භූමි ප්‍රමාණය, උෂ්ණත්වය හා වර්ෂාපතනය</label>
+                <label><input type="radio" name="q2" value="පාසල් සංඛ්‍යාව, රෝහල් ගණන, වාහන තදබදය හා බස් ගාස්තු"> (ඇ) පාසල් සංඛ්‍යාව, රෝහල් ගණන, වාහන තදබදය හා බස් ගාස්තු</label>
+            </div>
+            <div class="feedback" id="fb2"></div>
+        </div>
+
+        <!-- Q03 -->
+        <div class="question-card" data-q="3" data-ans="වර්ෂයක රටක මුළු ආදායම මධ්‍ය වාර්ෂික ජන සංඛ්‍යාවෙන් බෙදීමෙනි">
+            <div class="question-title">03. කිසියම් රටක ඒක ශීර්ෂ ආදායම ගණනය කරනු ලබන්නේ කෙසේද?</div>
+            <div class="options">
+                <label><input type="radio" name="q3" value="වර්ෂයක රටක මුළු ආදායම මධ්‍ය වාර්ෂික ජන සංඛ්‍යාවෙන් බෙදීමෙනි"> (අ) වර්ෂයක රටක මුළු ආදායම මධ්‍ය වාර්ෂික ජන සංඛ්‍යාවෙන් බෙදීමෙනි</label>
+                <label><input type="radio" name="q3" value="මුළු ජනගහනය මුළු භූමි ප්‍රමාණයෙන් බෙදීමෙනි"> (ආ) මුළු ජනගහනය මුළු භූමි ප්‍රමාණයෙන් බෙදීමෙනි</label>
+                <label><input type="radio" name="q3" value="රටක වාර්ෂික අපනයන ආදායම පමණක් ගැනීමෙනි"> (ඇ) රටක වාර්ෂික අපනයන ආදායම පමණක් ගැනීමෙනි</label>
+            </div>
+            <div class="feedback" id="fb3"></div>
+        </div>
+
+        <!-- Q04 -->
+        <div class="question-card" data-q="4" data-ans="වයස අවුරුදු එක සම්පූර්ණ වීමට පෙර මිය යන ළදරුවන් සංඛ්‍යාව, එම වර්ෂයේ සජීවී උපත් 1000ට අනුපාතයක් ලෙස දැක්වීමෙනි">
+            <div class="question-title">04. ළදරු මරණ අනුපාතය යනු කුමක්ද?</div>
+            <div class="options">
+                <label><input type="radio" name="q4" value="වයස අවුරුදු එක සම්පූර්ණ වීමට පෙර මිය යන ළදරුවන් සංඛ්‍යාව, එම වර්ෂයේ සජීවී උපත් 1000ට අනුපාතයක් ලෙස දැක්වීමෙනි"> (අ) වයස අවුරුදු එක සම්පූර්ණ වීමට පෙර මිය යන ළදරුවන් සංඛ්‍යාව, එම වර්ෂයේ සජීවී උපත් 1000ට අනුපාතයක් ලෙස දැක්වීමෙනි</label>
+                <label><input type="radio" name="q4" value="වයස අවුරුදු 5ට අඩු දරුවන්ගේ මරණ සංඛ්‍යාවයි"> (ආ) වයස අවුරුදු 5ට අඩු දරුවන්ගේ මරණ සංඛ්‍යාවයි</label>
+                <label><input type="radio" name="q4" value="උපත ලබන විට මිය යන දරුවන්ගේ ප්‍රතිශතයයි"> (ඇ) උපත ලබන විට මිය යන දරුවන්ගේ ප්‍රතිශතයයි</label>
+            </div>
+            <div class="feedback" id="fb4"></div>
+        </div>
+
+        <!-- Q05 -->
+        <div class="question-card" data-q="5" data-ans="පුද්ගලයකු උපත ලබන විට ඔහුට හෝ ඇයට ඉදිරියට ජීවත් විය හැකි කාලය සාමාන්‍ය කරණය කර දැක්වීමයි">
+            <div class="question-title">05. උපතේ දී ආයු අපේක්ෂාව යනු කුමක්ද?</div>
+            <div class="options">
+                <label><input type="radio" name="q5" value="පුද්ගලයකු උපත ලබන විට ඔහුට හෝ ඇයට ඉදිරියට ජීවත් විය හැකි කාලය සාමාන්‍ය කරණය කර දැක්වීමයි"> (අ) පුද්ගලයකු උපත ලබන විට ඔහුට හෝ ඇයට ඉදිරියට ජීවත් විය හැකි කාලය සාමාන්‍ය කරණය කර දැක්වීමයි</label>
+                <label><input type="radio" name="q5" value="රටක වැඩිමහල් පුද්ගලයාගේ වයසයි"> (ආ) රටක වැඩිමහල් පුද්ගලයාගේ වයසයි</label>
+                <label><input type="radio" name="q5" value="මිනිසුන් විශ්‍රාම ගන්නා සාමාන්‍ය වයසයි"> (ඇ) මිනිසුන් විශ්‍රාම ගන්නා සාමාන්‍ය වයසයි</label>
+            </div>
+            <div class="feedback" id="fb5"></div>
+        </div>
+
+        <!-- Q06 -->
+        <div class="question-card" data-q="6" data-ans="වයස අවුරුදු 15ට ඉහළ පුද්ගලයන්ගේ අකුරු කියවීමට හා ලිවීමට ඇති හැකියාවයි">
+            <div class="question-title">06. සාක්ෂරතාව ලෙස හැඳින්වෙන්නේ කුමක්ද?</div>
+            <div class="options">
+                <label><input type="radio" name="q6" value="වයස අවුරුදු 15ට ඉහළ පුද්ගලයන්ගේ අකුරු කියවීමට හා ලිවීමට ඇති හැකියාවයි"> (අ) වයස අවුරුදු 15ට ඉහළ පුද්ගලයන්ගේ අකුරු කියවීමට හා ලිවීමට ඇති හැකියාවයි</label>
+                <label><input type="radio" name="q6" value="විශ්වවිද්‍යාල උපාධිධාරීන්ගේ ප්‍රතිශතයයි"> (ආ) විශ්වවිද්‍යාල උපාධිධාරීන්ගේ ප්‍රතිශතයයි</label>
+                <label><input type="radio" name="q6" value="පාසල් යන දරුවන්ගේ සංඛ්‍යාවයි"> (ඇ) පාසල් යන දරුවන්ගේ සංඛ්‍යාවයි</label>
+            </div>
+            <div class="feedback" id="fb6"></div>
+        </div>
+
+        <!-- Q07 -->
+        <div class="question-card" data-q="7" data-ans="ප්‍රාදේශීය වෙනස්කම්">
+            <div class="question-title">07. සංවර්ධන දර්ශකවල ප්‍රදේශයෙන් ප්‍රදේශයට ඇති වන වෙනස්කම් හැඳින්වෙන්නේ කුමන නමිනි?</div>
+            <div class="options">
+                <label><input type="radio" name="q7" value="ප්‍රාදේශීය වෙනස්කම්"> (අ) ප්‍රාදේශීය වෙනස්කම්</label>
+                <label><input type="radio" name="q7" value="දේශගුණික වෙනස්කම්"> (ආ) දේශගුණික වෙනස්කම්</label>
+                <label><input type="radio" name="q7" value="භූ විෂමතා වෙනස්කම්"> (ඇ) භූ විෂමතා වෙනස්කම්</label>
+            </div>
+            <div class="feedback" id="fb7"></div>
+        </div>
+
+        <!-- Q08 -->
+        <div class="question-card" data-q="8" data-ans="කොළඹ දිස්ත්‍රික්කය">
+            <div class="question-title">08. 2009 දත්ත අනුව ශ්‍රී ලංකාවේ වැඩිම මාසික කුටුම්භ ආදායමක් වාර්තා වන දිස්ත්‍රික්කය වන්නේ:</div>
+            <div class="options">
+                <label><input type="radio" name="q8" value="කොළඹ දිස්ත්‍රික්කය"> (අ) කොළඹ දිස්ත්‍රික්කය</label>
+                <label><input type="radio" name="q8" value="මොනරාගල දිස්ත්‍රික්කය"> (ආ) මොනරාගල දිස්ත්‍රික්කය</label>
+                <label><input type="radio" name="q8" value="මඩකලපුව දිස්ත්‍රික්කය"> (ඇ) මඩකලපුව දිස්ත්‍රික්කය</label>
+            </div>
+            <div class="feedback" id="fb8"></div>
+        </div>
+
+        <!-- Q09 -->
+        <div class="question-card" data-q="9" data-ans="ස්ත්‍රී ආයු අපේක්ෂාව 78.6ක් වන විට පුරුෂයන්ගේ ආයු අපේක්ෂාව 72ක් වේ">
+            <div class="question-title">09. ශ්‍රී ලංකාවේ ස්ත්‍රී සහ පුරුෂ ආයු අපේක්ෂාවන් සම්බන්ධයෙන් නිවැරදි ප්‍රකාශය වන්නේ:</div>
+            <div class="options">
+                <label><input type="radio" name="q9" value="ස්ත්‍රී ආයු අපේක්ෂාව 78.6ක් වන විට පුරුෂයන්ගේ ආයු අපේක්ෂාව 72ක් වේ"> (අ) ස්ත්‍රී ආයු අපේක්ෂාව 78.6ක් වන විට පුරුෂයන්ගේ ආයු අපේක්ෂාව 72ක් වේ</label>
+                <label><input type="radio" name="q9" value="පුරුෂයන්ගේ ආයු අපේක්ෂාව ස්ත්‍රීන්ට වඩා වැඩිය"> (ආ) පුරුෂයන්ගේ ආයු අපේක්ෂාව ස්ත්‍රීන්ට වඩා වැඩිය</label>
+                <label><input type="radio" name="q9" value="ස්ත්‍රී සහ පුරුෂ ආයු අපේක්ෂාවන් සමාන වේ"> (ඇ) ස්ත්‍රී සහ පුරුෂ ආයු අපේක්ෂාවන් සමාන වේ</label>
+            </div>
+            <div class="feedback" id="fb9"></div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="question-card" data-q="10" data-ans="නාගරික ප්‍රදේශවල සාක්ෂරතා අනුපාතය වැඩිය">
+            <div class="question-title">10. ශ්‍රී ලංකාවේ නාගරික, ග්‍රාමීය සහ වතු යන අංශ සංසන්දනය කිරීමේදී පැහැදිලි වන්නේ:</div>
+            <div class="options">
+                <label><input type="radio" name="q10" value="නාගරික ප්‍රදේශවල සාක්ෂරතා අනුපාතය වැඩිය"> (අ) නාගරික ප්‍රදේශවල සාක්ෂරතා අනුපාතය වැඩිය</label>
+                <label><input type="radio" name="q10" value="වතු අංශයේ සාක්ෂරතා අනුපාතය නාගරික අංශයට වඩා වැඩිය"> (ආ) වතු අංශයේ සාක්ෂරතා අනුපාතය නාගරික අංශයට වඩා වැඩිය</label>
+                <label><input type="radio" name="q10" value="සියලු අංශවල සාක්ෂරතාව එකම මට්ටමක පවතී"> (ඇ) සියලු අංශවල සාක්ෂරතාව එකම මට්ටමක පවතී</label>
+            </div>
+            <div class="feedback" id="fb10"></div>
+        </div>
+
+        <!-- Q11 -->
+        <div class="question-card" data-q="11" data-ans="ආර්ථික, සමාජීය, සංස්කෘතික">
+            <div class="question-title">11. සංවර්ධනය යනු ................., සමාජීය හා සංස්කෘතික වැනි විවිධ අංශවල දියුණුවයි.</div>
+            <input type="text" name="q11" placeholder="ඔබේ පිළිතුර මෙහි ලියන්න...">
+            <div class="feedback" id="fb11"></div>
+        </div>
+
+        <!-- Q12 -->
+        <div class="question-card" data-q="12" data-ans="ජාතික ආදායමෙන් එක් පුද්ගලයකුට අයත් වන කොටසයි">
+            <div class="question-title">12. කිසියම් රටක නිශ්චිත කාල සීමාවක් තුළ ජාතික ආදායමෙන් එක් පුද්ගලයකුට අයත් වන කොටස ................. වේ.</div>
+            <input type="text" name="q12" placeholder="ඔබේ පිළිතුර මෙහි ලියන්න...">
+            <div class="feedback" id="fb12"></div>
+        </div>
+
+        <!-- Q13 -->
+        <div class="question-card" data-q="13" data-ans="සෞඛ්‍ය පහසුකම්වල තත්වය, වෛද්‍ය සේවාවන් සහ පෝෂණ මට්ටමයි">
+            <div class="question-title">13. ළදරු මරණ අනුපාතය මගින් රටක ................., වෛද්‍ය සේවාවන් සහ පෝෂණ මට්ටම අවබෝධ කරගත හැකිය.</div>
+            <input type="text" name="q13" placeholder="ඔබේ පිළිතුර මෙහි ලියන්න...">
+            <div class="feedback" id="fb13"></div>
+        </div>
+
+        <!-- Q14 -->
+        <div class="question-card" data-q="14" data-ans="අවකාශීය වෙනස්කම්">
+            <div class="question-title">14. ප්‍රදේශයෙන් ප්‍රදේශයට සංවර්ධන මට්ටම්වල පවතින වෙනස්කම් ................. ලෙස හැඳින්වේ.</div>
+            <input type="text" name="q14" placeholder="ඔබේ පිළිතුර මෙහි ලියන්න...">
+            <div class="feedback" id="fb14"></div>
+        </div>
+
+        <!-- Q15 -->
+        <div class="question-card" data-q="15" data-ans="94.6%">
+            <div class="question-title">15. ශ්‍රී ලංකාවේ නාගරික අංශයේ සාක්ෂරතා අනුපාතය ප්‍රතිශතයක් ලෙස ................. කි.</div>
+            <input type="text" name="q15" placeholder="ඔබේ පිළිතුර මෙහි ලියන්න...">
+            <div class="feedback" id="fb15"></div>
+        </div>
+
+        <!-- Q16 -->
+        <div class="question-card" data-q="16" data-ans="74.3%">
+            <div class="question-title">16. ශ්‍රී ලංකාවේ වතු අංශයේ සාක්ෂරතා අනුපාතය වන්නේ ................. කි.</div>
+            <input type="text" name="q16" placeholder="ඔබේ පිළිතුර මෙහි ලියන්න...">
+            <div class="feedback" id="fb16"></div>
+        </div>
+
+        <!-- Q17 -->
+        <div class="question-card" data-q="17" data-ans="74.2%">
+            <div class="question-title">17. ශ්‍රී ලංකාවේ සමස්ත ජන සංඛ්‍යාවේ ආයු අපේක්ෂාවේ අගය ආසන්න වශයෙන් ................. කි.</div>
+            <input type="text" name="q17" placeholder="ඔබේ පිළිතුර මෙහි ලියන්න...">
+            <div class="feedback" id="fb17"></div>
+        </div>
+
+        <!-- Q18 -->
+        <div class="question-card" data-q="18" data-ans="යුනෙස්ස්කෝ ප්‍රකාශය">
+            <div class="question-title">18. සංවර්ධනය පිළිබඳව 1978 දී ප්‍රකාශයක් නිකුත් කර ඇත්තේ කුමන ආයතනයක් මගින් ද?</div>
+            <div class="options">
+                <label><input type="radio" name="q18" value="යුනෙස්ස්කෝ ප්‍රකාශය"> (1) යුනෙස්ස්කෝ ප්‍රකාශය</label>
+                <label><input type="radio" name="q18" value="ලෝක බැංකුව"> (2) ලෝක බැංකුව</label>
+                <label><input type="radio" name="q18" value="ලෝක සෞඛ්‍ය සංවිධානය"> (3) ලෝක සෞඛ්‍ය සංවිධානය</label>
+                <label><input type="radio" name="q18" value="ජාත්‍යන්තර මූල්‍ය අරමුදල"> (4) ජාත්‍යන්තර මූල්‍ය අරමුදල</label>
+            </div>
+            <div class="feedback" id="fb18"></div>
+        </div>
+
+        <!-- Q19 -->
+        <div class="question-card" data-q="19" data-ans="91.8%">
+            <div class="question-title">19. ශ්‍රී ලංකාවේ ග්‍රාමීය අංශයේ සාක්ෂරතා අනුපාතය දැක්වෙන්නේ කුමන ප්‍රතිශතයකින් ද?</div>
+            <div class="options">
+                <label><input type="radio" name="q19" value="94.6%"> (1) 94.6%</label>
+                <label><input type="radio" name="q19" value="91.8%"> (2) 91.8%</label>
+                <label><input type="radio" name="q19" value="74.3%"> (3) 74.3%</label>
+                <label><input type="radio" name="q19" value="85.0%"> (4) 85.0%</label>
+            </div>
+            <div class="feedback" id="fb19"></div>
+        </div>
+
+        <!-- Q20 -->
+        <div class="question-card" data-q="20" data-ans="වයස අවුරුදු 15ට ඉහළ">
+            <div class="question-title">20. සාක්ෂරතාව ගණනය කිරීමේදී සලකා බලනු ලබන්නේ කුමන වයස් සීමාවට ඉහළ පුද්ගලයන් ද?</div>
+            <div class="options">
+                <label><input type="radio" name="q20" value="වයස අවුරුදු 18ට ඉහළ"> (1) වයස අවුරුදු 18ට ඉහළ</label>
+                <label><input type="radio" name="q20" value="වයස අවුරුදු 15ට ඉහළ"> (2) වයස අවුරුදු 15ට ඉහළ</label>
+                <label><input type="radio" name="q20" value="වයස අවුරුදු 5ට ඉහළ"> (3) වයස අවුරුදු 5ට ඉහළ</label>
+                <label><input type="radio" name="q20" value="වයස අවුරුදු 60ට ඉහළ"> (4) වයස අවුරුදු 60ට ඉහළ</label>
+            </div>
+            <div class="feedback" id="fb20"></div>
+        </div>
+
+        <div class="submit-section">
+            <button type="button" class="btn-submit" onclick="submitQuiz()">පිළිතුරු පෙන්වන්න / ලකුණු ලබා ගන්න</button>
+        </div>
+    </form>
+
+    <div id="result-section"></div>
+</div>
+
+<script>
+    let timeLeft = 30 * 60;
+    const timerElement = document.getElementById('timer');
+
+    const countdown = setInterval(() => {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        timerElement.innerHTML = `ඉතිරි කාලය: විනාඩි ${minutes} : තත්පර ${seconds < 10 ? '0' : ''}${seconds}`;
+        
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            alert("කාලය අවසන්! ඔබේ පිළිතුරු ස්වයංක්‍රීයව පරීක්ෂා කෙරේ.");
+            submitQuiz();
+        }
+        timeLeft--;
+    }, 1000);
+
+    function submitQuiz() {
+        clearInterval(countdown);
+        let score = 0;
+        const totalQuestions = 20;
+
+        for (let i = 1; i <= totalQuestions; i++) {
+            const card = document.querySelector(`[data-q="${i}"]`);
+            const correctAns = card.getAttribute('data-ans').trim();
+            const feedback = document.getElementById(`fb${i}`);
+            let userAns = "";
+
+            const radio = card.querySelector('input[type="radio"]:checked');
+            const textInput = card.querySelector('input[type="text"]');
+
+            if (radio) {
+                userAns = radio.value.trim();
+            } else if (textInput) {
+                userAns = textInput.value.trim();
+            }
+
+            if (userAns.toLowerCase() === correctAns.toLowerCase()) {
+                score++;
+                feedback.style.color = "green";
+                feedback.innerHTML = "✔ නිවැරදියි!";
+            } else {
+                feedback.style.color = "red";
+                feedback.innerHTML = `✘ වැරදියි. නිවැරදි පිළිතුර: <strong>${correctAns}</strong>`;
+            }
+        }
+
+        const studentName = document.getElementById('studentName').value || "සිසුවා";
+        const resultDiv = document.getElementById('result-section');
+        resultDiv.style.display = "block";
+        resultDiv.innerHTML = `ප්‍රතිඵලය: ${studentName}, ඔබ ලබාගත් ලකුණු ප්‍රමාණය ${score} / ${totalQuestions} කි! (${(score/totalQuestions)*100}%)`;
+        
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
